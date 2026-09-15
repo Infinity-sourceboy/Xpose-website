@@ -17,6 +17,12 @@
     />
   </head>
   <body>
+    <!-- Floating Contact Button -->
+    <a href="/contact.html" class="floating-contact" aria-label="Contact us">
+      <i class="fa-solid fa-phone"></i>
+      <span>Contact</span>
+    </a>
+
     <!-- Top Contact / Social Bar -->
     <div class="top-bar">
       <div class="container top-bar-inner">
@@ -767,64 +773,34 @@
         </div>
       </section>
 
-      <div
-        class="overflow-hidden w-full relative max-w-5xl mx-auto select-none"
-      >
-        <div
-          class="absolute left-0 top-0 h-full w-20 z-10 pointer-events-none bg-gradient-to-r from-white to-transparent"
-        ></div>
+      <section class="brands-section">
+        <div class="brands-header reveal">
+          <span class="eyebrow">Our clients</span>
 
-        <div class="marquee-inner flex will-change-transform min-w-[200%]">
-          <div class="flex">
-            <template id="logo-template">
-              <img class="w-full h-full object-cover mx-6" draggable="false" />
-            </template>
+          <h2>Brands we work with</h2>
 
-            <script>
-              const logos = [
-                "slack",
-                "framer",
-                "netflix",
-                "google",
-                "linkedin",
-                "instagram",
-                "facebook",
-              ];
-
-              const track = document.currentScript.parentElement;
-              const template = document.getElementById("logo-template");
-
-              [...logos, ...logos].forEach((name) => {
-                const img = template.content
-                  .cloneNode(true)
-                  .querySelector("img");
-                img.src = `https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/companyLogo/${name}.svg`;
-                img.alt = name.charAt(0).toUpperCase() + name.slice(1);
-                track.appendChild(img);
-              });
-            </script>
-          </div>
+          <p>
+            We maintain the highest level of customer satisfaction possible. All
+            of your requirements are taken into care and delivered with
+            innovation, precision and a strong focus on your brand's goals.
+          </p>
         </div>
 
-        <div
-          class="absolute right-0 top-0 h-full w-20 md:w-40 z-10 pointer-events-none bg-gradient-to-l from-white to-transparent"
-        ></div>
-      </div>
-      <style>
-        .marquee-inner {
-          animation: marqueeScroll 15s linear infinite;
-        }
+        <div class="logo-marquee">
+          <!-- Left fade -->
+          <div class="marquee-fade marquee-fade-left"></div>
 
-        @keyframes marqueeScroll {
-          0% {
-            transform: translateX(0%);
-          }
+          <!-- Moving logos -->
+          <div class="marquee-inner">
+            <div class="marquee-group" id="logo-track"></div>
 
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-      </style>
+            <div class="marquee-group" id="logo-track-clone"></div>
+          </div>
+
+          <!-- Right fade -->
+          <div class="marquee-fade marquee-fade-right"></div>
+        </div>
+      </section>
 
       <section class="section">
         <div class="container">

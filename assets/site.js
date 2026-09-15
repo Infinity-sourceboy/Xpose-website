@@ -12,7 +12,8 @@ if (menuBtn && nav) {
     const isOpen = nav.classList.toggle("active");
 
     // Animate hamburger → X
-    menuBtn.classList.toggle("active", isOpen);sss
+    menuBtn.classList.toggle("active", isOpen);
+    sss;
 
     // Accessibility
     menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
@@ -130,3 +131,37 @@ document.querySelectorAll("form[data-demo-form]").forEach((form) => {
     form.reset();
   });
 });
+
+
+  const logos = [
+    "slack",
+    "framer",
+    "netflix",
+    "google",
+    "linkedin",
+    "instagram",
+    "facebook",
+  ];
+
+  const logoTrack = document.getElementById("logo-track");
+  const logoTrackClone = document.getElementById("logo-track-clone");
+
+  function createLogo(name) {
+    const img = document.createElement("img");
+
+    img.src = `https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/companyLogo/${name}.svg`;
+
+    img.alt = name.charAt(0).toUpperCase() + name.slice(1);
+
+    img.draggable = false;
+
+    return img;
+  }
+
+  logos.forEach((name) => {
+    logoTrack.appendChild(createLogo(name));
+  });
+
+  logos.forEach((name) => {
+    logoTrackClone.appendChild(createLogo(name));
+  });

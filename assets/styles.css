@@ -301,9 +301,7 @@ select {
   }
 }
 
-
 @media (max-width: 480px) {
-
   .top-contact a[href^="mailto"] {
     display: none;
   }
@@ -320,7 +318,6 @@ select {
     width: 42px;
     height: 42px;
   }
-
 }
 .site-nav {
   display: flex;
@@ -1308,8 +1305,6 @@ p {
   }
 }
 
-
-
 .parallax-section {
   position: relative;
   background-image: url("dark_img2.png"); /* <-- swap in your image */
@@ -1322,7 +1317,12 @@ p {
 .parallax-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(16, 16, 16, 0.78); /* darkens the image so white text stays readable */
+  background: rgba(
+    16,
+    16,
+    16,
+    0.78
+  ); /* darkens the image so white text stays readable */
   z-index: 0;
 }
 
@@ -1369,8 +1369,6 @@ p {
   color: rgba(255, 255, 255, 0.75);
 }
 
-
-
 /* =========================================
    WORK SECTION V3 — full redesign
 ========================================= */
@@ -1378,8 +1376,8 @@ p {
 .work-section-v3 {
   position: relative;
   overflow: hidden;
-  background: radial-gradient(circle at 15% 10%, #1c1c1c 0%, #0b0b0b 55%),
-    #0b0b0b;
+  background:
+    radial-gradient(circle at 15% 10%, #1c1c1c 0%, #0b0b0b 55%), #0b0b0b;
   color: #fff;
   padding: 38px 0;
 }
@@ -1611,5 +1609,498 @@ p {
   }
 }
 
+/* =========================================
+   BRANDS WE WORK WITH
+========================================= */
+
+.brands-section {
+  width: 100%;
+  padding: 105px 0 115px;
+  background: var(--paper);
+  overflow: hidden;
+}
+
+/* -----------------------------------------
+   HEADING
+----------------------------------------- */
+
+.brands-header {
+  width: min(var(--max), calc(100% - 40px));
+  margin: 0 auto 65px;
+  text-align: center;
+}
+
+.brands-header .eyebrow {
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.brands-header h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(42px, 5.5vw, 72px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  margin: 0 auto 22px;
+  max-width: 900px;
+}
+
+.brands-header p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* -----------------------------------------
+   FULL WIDTH MARQUEE
+----------------------------------------- */
+
+.logo-marquee {
+  width: 100%;
+  max-width: none;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  padding: 15px 0;
+}
+
+/* -----------------------------------------
+   MOVING TRACK
+----------------------------------------- */
+
+.marquee-inner {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marqueeScroll 24s linear infinite;
+}
+
+/* Each repeated group */
+
+.marquee-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* -----------------------------------------
+   LOGOS
+----------------------------------------- */
+
+.marquee-group img {
+  width: 155px;
+  height: 75px;
+  object-fit: contain;
+  margin: 0 35px;
+  flex-shrink: 0;
+  user-select: none;
+  cursor: pointer;
+
+  /* Default: grayscale */
+  opacity: 0.78;
+  filter: grayscale(100%);
+
+  transition:
+    opacity 0.3s ease,
+    filter 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Show original brand color on hover */
+.marquee-group img:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.08);
+}
+
+/* -----------------------------------------
+   EDGE FADE
+----------------------------------------- */
+
+.marquee-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  width: 160px;
+
+  z-index: 10;
+
+  pointer-events: none;
+}
+
+.marquee-fade-left {
+  left: 0;
+
+  background: linear-gradient(
+    to right,
+    var(--paper) 0%,
+    rgba(246, 245, 241, 0.9) 25%,
+    rgba(246, 245, 241, 0) 100%
+  );
+}
+
+.marquee-fade-right {
+  right: 0;
+
+  background: linear-gradient(
+    to left,
+    var(--paper) 0%,
+    rgba(246, 245, 241, 0.9) 25%,
+    rgba(246, 245, 241, 0) 100%
+  );
+}
+
+/* -----------------------------------------
+   ANIMATION
+----------------------------------------- */
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* -----------------------------------------
+   TABLET
+----------------------------------------- */
+
+@media (max-width: 900px) {
+  .brands-section {
+    padding: 85px 0 95px;
+  }
+
+  .brands-header {
+    margin-bottom: 50px;
+  }
+
+  .marquee-group img {
+    width: 130px;
+    height: 65px;
+    margin: 0 28px;
+  }
+
+  .marquee-fade {
+    width: 100px;
+  }
+
+  .marquee-inner {
+    animation-duration: 21s;
+  }
+}
+
+/* -----------------------------------------
+   MOBILE
+----------------------------------------- */
+
+@media (max-width: 620px) {
+  .brands-section {
+    padding: 70px 0 80px;
+  }
+
+  .brands-header {
+    width: calc(100% - 28px);
+    margin-bottom: 38px;
+  }
+
+  .brands-header h2 {
+    font-size: clamp(38px, 11vw, 52px);
+    margin-bottom: 18px;
+  }
+
+  .brands-header p {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .marquee-marquee {
+    width: 100%;
+  }
+
+  .marquee-group img {
+    width: 105px;
+    height: 55px;
+    margin: 0 20px;
+  }
+
+  .marquee-fade {
+    width: 65px;
+  }
+
+  .marquee-inner {
+    animation-duration: 18s;
+  }
+}
+
+/* -----------------------------------------
+   REDUCE MOTION
+----------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-inner {
+    animation: none;
+  }
+}
+/* ================================
+   Floating Contact - Glass Button
+================================ */
+
+.floating-contact {
+  position: fixed;
+  top: 90%;
+  right: 24px;
+  transform: translateY(-50%);
+
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Green glass effect */
+  background: linear-gradient(
+    135deg,
+    rgba(31, 191, 155, 0.88),
+    rgba(5, 102, 65, 0.92)
+  );
+
+  color: #fff;
+  text-decoration: none;
+
+  border-radius: 50%;
+
+  /* Glass border */
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  /* Glass blur */
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  /* Premium depth + green glow */
+  box-shadow:
+    0 8px 25px rgba(5, 102, 65, 0.28),
+    0 0 0 5px rgba(31, 191, 155, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.35);
+
+  z-index: 9999;
+
+  transition:
+    transform 0.35s cubic-bezier(.2, .8, .2, 1),
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
 
 
+/* Soft glass highlight */
+
+.floating-contact::before {
+  content: "";
+  position: absolute;
+
+  top: 5px;
+  left: 8px;
+
+  width: 18px;
+  height: 8px;
+
+  background: rgba(255, 255, 255, 0.45);
+
+  border-radius: 50%;
+
+  filter: blur(2px);
+
+  transform: rotate(-35deg);
+
+  pointer-events: none;
+}
+
+
+/* Subtle outer glow */
+
+.floating-contact::after {
+  content: "";
+
+  position: absolute;
+  inset: -4px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(31, 191, 155, 0.25);
+
+  opacity: 0.7;
+
+  animation: contactPulse 2.8s ease-in-out infinite;
+
+  pointer-events: none;
+}
+
+
+@keyframes contactPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.25;
+  }
+
+  50% {
+    transform: scale(1.12);
+    opacity: 0.65;
+  }
+}
+
+
+/* Phone icon */
+
+.floating-contact i {
+  position: relative;
+  z-index: 2;
+
+  font-size: 19px;
+
+  color: #fff;
+
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.18));
+
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+}
+
+
+/* Hover */
+
+.floating-contact:hover {
+  background: linear-gradient(
+    135deg,
+    #1fbf9b,
+    #056641
+  );
+
+  color: #fff;
+
+  transform: translateY(-50%) scale(1.1);
+
+  box-shadow:
+    0 14px 35px rgba(5, 102, 65, 0.35),
+    0 0 0 7px rgba(31, 191, 155, 0.10),
+    0 0 28px rgba(31, 191, 155, 0.28),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+
+.floating-contact:hover i {
+  transform: rotate(-10deg) scale(1.12);
+
+  filter:
+    drop-shadow(0 2px 7px rgba(0, 0, 0, 0.25));
+}
+
+
+/* ================================
+   Contact Label
+================================ */
+
+.floating-contact span {
+  position: absolute;
+
+  right: 68px;
+
+  white-space: nowrap;
+
+  background: rgba(17, 17, 17, 0.88);
+
+  color: #fff;
+
+  padding: 9px 14px;
+
+  border-radius: 9px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.18);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateX(8px);
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.floating-contact:hover span {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateX(0);
+}
+
+
+/* Small arrow for label */
+
+.floating-contact span::after {
+  content: "";
+
+  position: absolute;
+
+  right: -5px;
+  top: 50%;
+
+  width: 9px;
+  height: 9px;
+
+  background: rgba(17, 17, 17, 0.88);
+
+  transform: translateY(-50%) rotate(45deg);
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+
+/* ================================
+   Mobile
+================================ */
+
+@media (max-width: 620px) {
+
+  .floating-contact {
+    right: 16px;
+
+    width: 52px;
+    height: 52px;
+
+    box-shadow:
+      0 8px 24px rgba(5, 102, 65, 0.30),
+      0 0 0 4px rgba(31, 191, 155, 0.08),
+      inset 0 1px 1px rgba(255, 255, 255, 0.35);
+  }
+
+  .floating-contact i {
+    font-size: 17px;
+  }
+
+  .floating-contact span {
+    display: none;
+  }
+
+}
